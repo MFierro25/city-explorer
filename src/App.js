@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import React, { Component } from 'react';
+import CityForm from './components/CityForm';
 import axios from 'axios';
+import CityCard from './components/CityCard';
+import Alert from 'react-bootstrap/Alert';
+
 
 
 export default class App extends Component {
@@ -9,39 +11,43 @@ export default class App extends Component {
   constructor(props) {
     super(props) 
       this.state = {
-          cityValue: '',
-          lat: '',
-          lon: '',
-          error: false
+          location: {},
+          error: false,
+          map: ''
       }
   }
 
-  handleClick = async () => {
-    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.cityValue}&format=json`;
-   
+  getLocation = async (city) => {
+    city.preventDefault();
+    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.location}&format=json`;
+    try {
       let response = await axios.get(url)
       console.log(response.data[0]);
-      this.setState({location: response.data[0]})
-    
+      this.setState({location: response.data[0]}, this.getMapUrl)
+      this.getMapUrl();
+  } catch (e) {
+    console.error(e);
+    this.setState({ error: true })
+  }
   }
 
   handleChange = (e) => {
-    this.setState({ cityValue: e.target.value })
+    this.setState({ location: e.target.value })
+  }
+
+  getMapUrl = () => {
+    let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${this.state.location.lat},${this.state.location.lon}&zoom=12`;
+    this.setState( {
+      map: url
+    })
   }
 
   render () {
     return (
       <div>
-        <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>City</Form.Label>
-            <Form.Control onChange={this.handleChange} value={this.state.cityValue} type="text" placeholder="Enter city you want to explore" />
-          </Form.Group>
-        <Button onClick={this.handleClick} variant="primary" type="submit">
-          Explore!
-        </Button>
-        </Form>
-          <p>{this.state.display_name}, {this.state.lat}, {this.state.lon}</p>
+        <CityForm location = {this.state.location} handleChange = {this.handleChange} getLocation={this.getLocation}/>
+        <CityCard location = {this.state.location} map = {this.state.map}/>
+        {this.state.error && <Alert variant='danger'>ERROR</Alert>}
       </div>
     )
   }
