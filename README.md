@@ -22,6 +22,6 @@ Actual time needed to complete: 6 hours and still going
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
-11/01/2021 11:36pm - set up API key and search form in the app. 
+11/01/2021 11:36pm - set up API key and search form in the app. <br>
 11/02/2021 3:47pm - fixed data and map to show properly when a city is entered
 ## Credit and Collaborations
