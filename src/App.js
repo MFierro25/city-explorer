@@ -3,6 +3,7 @@ import CityForm from './components/CityForm';
 import axios from 'axios';
 import CityCard from './components/CityCard';
 import Alert from 'react-bootstrap/Alert';
+import Weather from './components/Weather';
 
 
 
@@ -48,6 +49,7 @@ export default class App extends Component {
         <CityForm location = {this.state.location} handleChange = {this.handleChange} getLocation={this.getLocation}/>
         <CityCard location = {this.state.location} map = {this.state.map}/>
         {this.state.error && <Alert variant='danger'>ERROR</Alert>}
+        <Weather />
       </div>
     )
   }
