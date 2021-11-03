@@ -49,7 +49,7 @@ export default class App extends Component {
         <CityForm location = {this.state.location} handleChange = {this.handleChange} getLocation={this.getLocation}/>
         <CityCard location = {this.state.location} map = {this.state.map}/>
         {this.state.error && <Alert variant='danger'>ERROR</Alert>}
-        <Weather />
+        {this.state.map && <Weather location = {this.state.location} />}
       </div>
     )
   }
