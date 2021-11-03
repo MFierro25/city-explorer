@@ -3,12 +3,7 @@ import axios from 'axios';
 
 export default class WeatherInfo extends Component {
 
-    // construcor(props) {
-    //     super(props)
-    //         this.state = {
-    //         weatherInfo: {}
-    //     }
-    // }
+
 
     getWeatherInfo = async () => {
         const url = `http://localhost:3001/weather`;
