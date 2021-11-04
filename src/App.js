@@ -4,6 +4,7 @@ import axios from 'axios';
 import CityCard from './components/CityCard';
 import Alert from 'react-bootstrap/Alert';
 import Weather from './components/Weather';
+import Movie from './components/Movie';
 
 
 
@@ -14,13 +15,14 @@ export default class App extends Component {
       this.state = {
           location: {},
           error: false,
-          map: ''
+          map: '',
+          city: ''
       }
   }
 
   getLocation = async (city) => {
     city.preventDefault();
-    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.location}&format=json`;
+    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.city}&format=json`;
     try {
       let response = await axios.get(url)
       console.log(response.data[0]);
@@ -33,7 +35,7 @@ export default class App extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ location: e.target.value })
+    this.setState({ city: e.target.value })
   }
 
   getMapUrl = () => {
@@ -50,6 +52,7 @@ export default class App extends Component {
         <CityCard location = {this.state.location} map = {this.state.map}/>
         {this.state.error && <Alert variant='danger'>ERROR</Alert>}
         {this.state.map && <Weather location = {this.state.location} />}
+        {this.state.map && <Movie city = {this.state.city} />}
       </div>
     )
   }
