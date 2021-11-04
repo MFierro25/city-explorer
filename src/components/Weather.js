@@ -21,8 +21,11 @@ export default class Weather extends Component {
         return (
             <div>
                 <button onClick={this.getWeatherInfo}>Get Weather Info</button>
-                
+link-apis
                 {this.state.weatherForecast.length > 0 && this.state.weatherForecast.map((dayForecast, idx) => <li key={idx}>low temp:{dayForecast.min_temp} High temp:{dayForecast.max_temp}
+
+                
+                {this.state.weatherForecast.length > 0 && this.state.weatherForecast.map((dayForecast, idx) => <li key={idx}>low temp:{dayForecast.min_temp} High temp:{dayForecast.max_temp} main
                 description: {dayForecast.description}</li>)}
             </div>
         )
