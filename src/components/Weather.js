@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import WeatherDay from './WeatherDay';
 
 export default class Weather extends Component {
 
@@ -18,12 +19,13 @@ export default class Weather extends Component {
         this.setState( {weatherForecast: response.data});
     }
 
-    render () {
+    render() {
+        
         return (
             <div>
-                <button onClick={this.getWeatherInfo}>Get Weather Info</button>
-                {this.state.weatherForecast.length > 0 && this.state.weatherForecast.map((dayForecast, idx) => <li key={idx}>date: {dayForecast.date}description: {dayForecast.description}</li>)}
+            <button onClick={this.getWeatherInfo}>Get Weather Info</button>
+            {this.state.weatherForecast.map((day, idx) => <WeatherDay day={day} idx={idx} />)}
             </div>
-        )
-    }
+        )}
 }
+
