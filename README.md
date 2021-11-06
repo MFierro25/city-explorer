@@ -29,5 +29,6 @@ Actual time needed: 5 hours <br>
 11/02/2021 3:47pm - fixed data and map to show properly when a city is entered <br>
 11/03/2021 4 pm - created button and list to show weather information for searched city
 11/04/2021 4:54 pm - made front end to show buttons to request movie and weather information
+11/05/2021 5:12pm - created boostrap components to show information from weather and movie API
 
 ## Credit and Collaborations
