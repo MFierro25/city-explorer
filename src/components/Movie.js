@@ -1,30 +1,22 @@
-import React, { Component } from 'react';
-import axios from "axios";
+import React, { Component } from 'react'
+import { Card } from 'react-bootstrap'
 
 export default class Movie extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            movieData: []
-        }
-    }
+    render() {
 
-    getMovieInfo = async () => {
-        const url = `${process.env.REACT_APP_SERVER_URL}/movies?query=${this.props.city}`;
-        console.log(this.props.city);
-        let response = await axios.get(url)
-        console.log(response.data)
-        this.setState( {movieData: response.data});
-   
-    }
+      let {movie} = this.props;
 
-    render () {
-        return (
-            <div>
-                <button onClick={this.getMovieInfo}>Search Movies with City Name</button>
-                {this.state.movieData.length > 0 && this.state.movieData.map((movieInfo, idx) => <li key={idx}>Title: {movieInfo.title} Overview: {movieInfo.overview}</li>)}
-            </div>
-        )
+      return (
+          
+            <Card className="text-center" style={{width: '22rem'}}>
+              <Card.Title>{movie.title}</Card.Title>
+              <Card.Body>
+                <Card.Text style={{height:"200px", overflow:"scroll", borderBottom:"thin solid black"}}>{movie.overview}</Card.Text>
+                <Card.Subtitle>Release: {movie.release_date}</Card.Subtitle>
+              </Card.Body>
+            </Card>
+    
+      )
     }
-}
+  }

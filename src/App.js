@@ -4,7 +4,8 @@ import axios from 'axios';
 import CityCard from './components/CityCard';
 import Alert from 'react-bootstrap/Alert';
 import Weather from './components/Weather';
-import Movie from './components/Movie';
+import Movies from './components/Movies';
+
 
 
 
@@ -52,7 +53,7 @@ export default class App extends Component {
         <CityCard location = {this.state.location} map = {this.state.map}/>
         {this.state.error && <Alert variant='danger'>ERROR</Alert>}
         {this.state.map && <Weather location = {this.state.location} />}
-        {this.state.map && <Movie city = {this.state.city} />}
+        {this.state.map && <Movies city = {this.state.city} />}
       </div>
     )
   }
