@@ -19,6 +19,9 @@ Actual time needed to complete: 6 hours <br>
 #### Name of feature: Custom Server <br>
 Estimated Time needed: 3 hours <br>
 Actual time needed: 5 hours <br>
+#### Name of feature: Cache <br>
+Estimated time needed: 3 hours<br>
+Actual time needed: 4.5 hours <br>
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
