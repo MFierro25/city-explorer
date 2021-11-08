@@ -8,7 +8,7 @@ export default class CityForm extends Component {
 
     render () {
         return (
-            <Container>
+            <Container class='form'>
                 <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>City</Form.Label>

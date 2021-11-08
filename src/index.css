@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -12,4 +13,16 @@ code {
     monospace;
 }
 
+.container {
+  background-color: cadetblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.form-control {
+  width: 150%
+}
+.mapCard {
+  align-items: center;
+}

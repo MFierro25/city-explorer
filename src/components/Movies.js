@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Movie from './Movie'
 import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button'
 
 export default class Movies extends Component {
 
@@ -24,7 +25,7 @@ export default class Movies extends Component {
     render () {
         return (
             <div>
-                <button onClick={this.getMovieInfo}>Search Movies with City Name</button>
+                <Button variant="outline-dark" onClick={this.getMovieInfo}>Search Movies with City Name</Button>
                <Row sm={2} md={3} lg={4} xl={4}>
                     {this.state.movieData.map((movie, idx) => <Movie movie={movie} idx={idx} />)}
                </Row>
