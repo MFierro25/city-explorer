@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import WeatherDay from './WeatherDay';
+import Button from 'react-bootstrap/Button'
 
 export default class Weather extends Component {
 
@@ -23,7 +24,7 @@ export default class Weather extends Component {
         
         return (
             <div>
-            <button onClick={this.getWeatherInfo}>Get Weather Info</button>
+            <Button variant="outline-dark" onClick={this.getWeatherInfo}>Get Weather Info</Button>
             {this.state.weatherForecast.map((day, idx) => <WeatherDay day={day} idx={idx} />)}
             </div>
         )}

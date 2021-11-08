@@ -7,8 +7,6 @@ import Weather from './components/Weather';
 import Movies from './components/Movies';
 
 
-
-
 export default class App extends Component {
 
   constructor(props) {
@@ -50,7 +48,7 @@ export default class App extends Component {
     return (
       <div>
         <CityForm location = {this.state.location} handleChange = {this.handleChange} getLocation={this.getLocation}/>
-        <CityCard location = {this.state.location} map = {this.state.map}/>
+        <CityCard class='mapCard' location = {this.state.location} map = {this.state.map}/>
         {this.state.error && <Alert variant='danger'>ERROR</Alert>}
         {this.state.map && <Weather location = {this.state.location} />}
         {this.state.map && <Movies city = {this.state.city} />}

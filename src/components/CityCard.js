@@ -7,7 +7,7 @@ export default class CityCard extends Component{
         console.log(this.props);
         return (
             <div>
-                <Card border="secondary" style={{ width: '18rem' }}>
+                <Card border="secondary" class='mapCard' style={{ width: '18rem' }}>
                     <Card.Img variant='top' src={this.props.map} />
                     <Card.Body>
                         <Card.Title>{this.props.location.display_name}</Card.Title>
